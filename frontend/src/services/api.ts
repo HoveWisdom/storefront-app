@@ -1,4 +1,4 @@
-const API_BASE = import.meta.env.VITE_API_BASE_URL ?? 'http://localhost:5000/api';
+const API_BASE = (process.env.REACT_APP_API_BASE_URL as string) ?? 'http://localhost:5058/api';
 
 async function handleResponse<T>(response: Response): Promise<T> {
   const text = await response.text();

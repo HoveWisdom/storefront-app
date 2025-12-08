@@ -5,6 +5,10 @@
 /.pnp
 .pnp.js
 
+# frontend env
+frontend/.env
+frontend/.env.development
+
 # testing
 /coverage
 
