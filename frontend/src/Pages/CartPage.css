@@ -1,0 +1,5 @@
+.cart-page { padding: 24px 16px; max-width: 1100px; margin: 0 auto; }
+.cart-page h1 { margin: 0 0 16px 0; }
+.cart-page-content { display: flex; gap: 16px; align-items: flex-start; }
+/* reuse CartPanel styling for the left column; add placeholder for right column */
+.cart-placeholder { flex: 1; min-height: 200px; background: #fff; border-radius: 8px; padding: 16px; border: 1px solid #eee; }
