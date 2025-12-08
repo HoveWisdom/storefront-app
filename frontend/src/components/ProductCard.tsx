@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Product } from '../types';
 import { useCart } from '../context/CartContext';
 import './ProductCard.css';
+import { Link } from 'react-router-dom';
 
 export const ProductCard: React.FC<{ product: Product }> = ({ product }) => {
   const { addToCart } = useCart();
@@ -23,13 +24,17 @@ export const ProductCard: React.FC<{ product: Product }> = ({ product }) => {
 
   return (
     <article className="card" aria-labelledby={`product-${product.id}`}>
-      <img
-        src={product.imageUrl ?? '/placeholder.png'}
-        alt={product.name}
-        className="card-image"
-      />
+      <Link to={`/products/${product.id}`} className="card-media-link">
+        <img
+          src={product.imageUrl ?? '/placeholder.png'}
+          alt={product.name}
+          className="card-image"
+        />
+      </Link>
       <div className="card-body">
-        <h3 id={`product-${product.id}`} className="card-title">{product.name}</h3>
+        <h3 id={`product-${product.id}`} className="card-title">
+          <Link to={`/products/${product.id}`} className="card-title-link">{product.name}</Link>
+        </h3>
         <p className="card-desc">{product.description}</p>
         <div className="card-meta">
           <strong className="price">${product.price.toFixed(2)}</strong>

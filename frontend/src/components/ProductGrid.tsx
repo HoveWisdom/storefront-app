@@ -1,13 +1,18 @@
 import React from 'react';
 import { useProducts } from '../hooks/useProducts';
+import { Product } from '../types';
 import { ProductCard } from './ProductCard';
 import './ProductGrid.css';
 
-export const ProductGrid: React.FC = () => {
-  const { products, loading, error } = useProducts();
+type Props = {
+  products?: Product[] | null;
+};
 
-  if (loading) return <div className="center">Loading products…</div>;
-  if (error) return <div className="center error">{error}</div>;
+export const ProductGrid: React.FC<Props> = ({ products: productsProp }) => {
+  const { products: fetched, loading, error } = useProducts();
+  const products = productsProp ?? fetched;
+  if (loading && !products) return <div className="center">Loading products…</div>;
+  if (error && !products) return <div className="center error">{error}</div>;
   if (!products || products.length === 0) return <div className="center">No products found.</div>;
 
   return (
@@ -18,3 +23,5 @@ export const ProductGrid: React.FC = () => {
     </section>
   );
 };
+
+export default ProductGrid;
