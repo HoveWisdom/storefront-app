@@ -39,7 +39,7 @@ npm start
 ## Branching & Commits
 
 - All work is done in feature branches (see CONTRIBUTING.md for guidelines)
-- PRs into `feature branches`, then merged into `main`
+- PRs into `develop`, then merged into `main`
 - [Conventional Commits](https://www.conventionalcommits.org/) are used
 
 ## Design Notes
